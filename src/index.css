@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+
+    --primary: 205 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 205 30% 95%;
+    --secondary-foreground: 210 20% 15%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 50%;
+
+    --accent: 205 60% 90%;
+    --accent-foreground: 205 80% 35%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 205 80% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --shadow-card: 0 4px 24px -4px hsl(205 80% 55% / 0.08);
+    --shadow-card-hover: 0 12px 40px -8px hsl(205 80% 55% / 0.18);
+    --shadow-hero: 0 20px 60px -12px hsl(205 80% 55% / 0.25);
+  }
+
+  .dark {
+    --background: 210 20% 8%;
+    --foreground: 210 20% 95%;
+    --card: 210 20% 12%;
+    --card-foreground: 210 20% 95%;
+    --popover: 210 20% 12%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 205 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 18%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 210 20% 18%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 205 40% 20%;
+    --accent-foreground: 205 80% 75%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 20% 20%;
+    --input: 210 20% 20%;
+    --ring: 205 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(205 80% 55%), hsl(205 90% 65%));
+  }
+
+  .gradient-light {
+    background: linear-gradient(180deg, hsl(205 30% 97%), hsl(0 0% 100%));
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--shadow-card-hover);
+    @apply -translate-y-2;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(205 80% 45%), hsl(205 90% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      hsl(0 0% 100% / 0.92) 0%,
+      hsl(0 0% 100% / 0.75) 50%,
+      hsl(0 0% 100% / 0.3) 100%
+    );
+  }
+
+  .whatsapp-btn {
+    background: linear-gradient(135deg, hsl(142 70% 45%), hsl(142 70% 38%));
+    @apply text-primary-foreground rounded-full px-6 py-3 font-medium transition-all duration-300;
+  }
+
+  .whatsapp-btn:hover {
+    background: linear-gradient(135deg, hsl(142 70% 38%), hsl(142 70% 32%));
+    @apply scale-105 shadow-lg;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
